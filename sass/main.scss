@@ -2,27 +2,16 @@
   width: 1000px;
   margin: 30px auto;
   background-color: #ddd;
+
   display: grid;
+  //using min-content and max-content
   // grid-template-rows: repeat(2, 150px);
-  // grid-template-columns: repeat(2, 1fr);
-  grid-gap: 30px;
+  // grid-template-columns: max-content 1fr 1fr min-content;
 
-  grid-auto-rows: 80px;
-  // grid-auto-flow: column;
-  grid-auto-flow: row dense;
-  grid-auto-columns: dense; //with dense full pack cell is displayed
-
-  //ALIGN GRID ITEMS TO GRID ROWS
-  // align-items: center; //STRETCH //center//end ///start
-  // justify-items: center;
-
-  //ALIGN GRID TRACKS TO GRID CONTAINER
-  grid-template-rows: repeat(2, 100px);
-  grid-template-columns: repeat(2, 200px);
-  height: 1000px;
-
-  justify-content: center; //start//end//center//space-between//space-around//space-evenly
-  align-content: center;
+  //using minmax function
+  width: 90%;
+  grid-template-rows: repeat(2, minmax(150px, min-content));
+  grid-template-columns: minmax(200px, 1fr) repeat(3, 1fr);
 
   .item {
     padding: 20px;
@@ -31,21 +20,36 @@
     font-family: sans-serif;
     background-color: orangered;
 
+    &--1 {
+      background-color: orangered;
+    }
+
+    &--2 {
+      background-color: yellowgreen;
+    }
+
+    &--3 {
+      background-color: blueviolet;
+    }
+
     &--4 {
-      background-color: crimson;
-      grid-row: 2 / span 3;
-      // align-self: start;
-      // justify-self: start;
+      background-color: palevioletred;
+    }
+
+    &--5 {
+      background-color: royalblue;
     }
 
     &--6 {
-      background-color: lightcoral;
-      grid-row: 2 / span 2;
+      background-color: goldenrod;
     }
 
     &--7 {
-      background-color: palevioletred;
-      grid-column: 1/-1;
+      background-color: crimson;
+    }
+
+    &--8 {
+      background-color: darkslategray;
     }
   }
 }
